@@ -27,10 +27,6 @@ extern "C" {
 
 extern lv_obj_t * ui____initial_actions0;
 
-// IMAGES AND IMAGE SETS
-LV_IMG_DECLARE(ui_img_empty_gauge_png);    // assets/empty_gauge.png
-LV_IMG_DECLARE(ui_img_full_gauge_png);    // assets/full_gauge.png
-
 // FONTS
 LV_FONT_DECLARE(ui_font_Times40);
 

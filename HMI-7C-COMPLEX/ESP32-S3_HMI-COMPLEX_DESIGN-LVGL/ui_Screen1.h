@@ -10,7 +10,7 @@
 extern "C" {
 #endif
  void setTransistorState(uint8_t output, bool state);
- 
+
 // SCREEN: ui_Screen1
 extern void ui_Screen1_screen_init(void);
 extern void ui_Screen1_screen_destroy(void);
