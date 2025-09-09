@@ -27,8 +27,15 @@ extern "C" {
 
 extern lv_obj_t * ui____initial_actions0;
 
+// IMAGES AND IMAGE SETS
+LV_IMG_DECLARE(ui_img_256_empty_png);    // assets/256_empty.png
+LV_IMG_DECLARE(ui_img_256_full_png);    // assets/256_full.png
+
 // FONTS
 LV_FONT_DECLARE(ui_font_Times40);
+LV_FONT_DECLARE(ui_font_opensans40);
+LV_FONT_DECLARE(ui_font_opensans34);
+LV_FONT_DECLARE(ui_font_opensans26);
 
 // UI INIT
 void ui_init(void);

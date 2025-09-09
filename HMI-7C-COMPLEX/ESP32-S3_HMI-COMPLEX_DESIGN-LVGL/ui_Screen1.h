@@ -9,6 +9,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
  void setTransistorState(uint8_t output, bool state);
 
 // SCREEN: ui_Screen1
