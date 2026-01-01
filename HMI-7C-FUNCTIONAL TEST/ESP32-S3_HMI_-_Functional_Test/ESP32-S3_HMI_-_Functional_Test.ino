@@ -1,5 +1,3 @@
-
-
 #include <Wire.h>
 #include <SPI.h>
 #include <WiFi.h>
@@ -10,7 +8,6 @@
 #include "SD.h"
 #include <Adafruit_ADS1X15.h>
 #include <PCA9538.h>
-
 
 
 #define SDA 19
@@ -91,7 +88,7 @@ Arduino_ESP32RGBPanel *bus = new Arduino_ESP32RGBPanel(
   GFX_NOT_DEFINED /* CS */, GFX_NOT_DEFINED /* SCK */, GFX_NOT_DEFINED /* SDA */,
   4 /* DE */, 5 /* VSYNC */, 6 /* HSYNC */, 7 /* PCLK */,
   1 /* R0 */, 41 /* R1 */, 40 /* R2 */, 38 /* R3 */, 45 /* R4 */,
-  47 /* G0 */, 21 /* G1 */, 14 /* G2 */, 9 /* G3 */, 3 /* G4 */, 3 /* G5 */,
+  47 /* G0 */, 21 /* G1 */, 14 /* G2 */, 46 /* G3 */, 3 /* G4 */, 3 /* G5 */,
   8 /* B0 */, 18 /* B1 */, 17 /* B2 */, 16 /* B3 */, 15 /* B4 */
 );
 Arduino_RPi_DPI_RGBPanel *lcd = new Arduino_RPi_DPI_RGBPanel(
@@ -214,7 +211,7 @@ void setup()
   //I2C_SCAN();
   //delay(1000);
 
-  pinMode(RS485_FC, OUTPUT);
+ // pinMode(RS485_FC, OUTPUT);
   //  pinMode(GSM_RESET, OUTPUT);
 
   //  digitalWrite(GSM_RESET, LOW);
@@ -328,7 +325,7 @@ void GPIOCallback(lv_timer_t * timer) {
   int di2 = io.digitalRead(INPUT2);
   int di3 = io.digitalRead(INPUT3);
   int di4 = io.digitalRead(INPUT4);
-
+ 
   Serial.printf("DI1:%d DI2:%d DI3:%d DI4:%d\n", di1, di2, di3, di4);
 
   lv_label_set_text_fmt(ui_DI1, "%d", di1);
