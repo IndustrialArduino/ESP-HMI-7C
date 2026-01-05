@@ -1268,4 +1268,3 @@ lv_font_t ui_font_Times40 = {
 
 
 #endif /*#if UI_FONT_TIMES40*/
-

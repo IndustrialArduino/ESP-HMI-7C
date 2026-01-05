@@ -1615,4 +1615,3 @@ lv_font_t ui_font_opensans26 = {
 
 
 #endif /*#if UI_FONT_OPENSANS26*/
-

@@ -3284,4 +3284,3 @@ lv_font_t ui_font_opensans40 = {
 
 
 #endif /*#if UI_FONT_OPENSANS40*/
-

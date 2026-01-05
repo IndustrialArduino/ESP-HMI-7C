@@ -2,4 +2,3 @@
 // SquareLine Studio version: SquareLine Studio 1.5.3
 // LVGL version: 8.3.6
 // Project name: HMI-7-Complex_design
-

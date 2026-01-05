@@ -16,9 +16,13 @@
 #define SDA 19
 #define SCL 20
 
-#define RS485_RXD 46
-#define RS485_TXD 2
-#define RS485_FC  0
+//#define RS485_RXD 46
+//#define RS485_TXD 2
+//#define RS485_FC  0
+
+#define RXD 2
+#define TXD 9
+
 
 #define ETHERNET_RESET -1
 #define ETH_CS 10
@@ -91,7 +95,7 @@ Arduino_ESP32RGBPanel *bus = new Arduino_ESP32RGBPanel(
   GFX_NOT_DEFINED /* CS */, GFX_NOT_DEFINED /* SCK */, GFX_NOT_DEFINED /* SDA */,
   4 /* DE */, 5 /* VSYNC */, 6 /* HSYNC */, 7 /* PCLK */,
   1 /* R0 */, 41 /* R1 */, 40 /* R2 */, 38 /* R3 */, 45 /* R4 */,
-  47 /* G0 */, 21 /* G1 */, 14 /* G2 */, 9 /* G3 */, 3 /* G4 */, 3 /* G5 */,
+  47 /* G0 */, 21 /* G1 */, 14 /* G2 */, 46 /* G3 */, 3 /* G4 */, 3 /* G5 */,
   8 /* B0 */, 18 /* B1 */, 17 /* B2 */, 16 /* B3 */, 15 /* B4 */
 );
 Arduino_RPi_DPI_RGBPanel *lcd = new Arduino_RPi_DPI_RGBPanel(
@@ -190,8 +194,8 @@ void setup()
     pinMode(0, OUTPUT);//TOUCH-CS
     #endif*/
 
-  Serial2.begin(115200, SERIAL_8N1, RS485_RXD, RS485_TXD);
-  delay(1000);
+  //Serial2.begin(115200, SERIAL_8N1, RS485_RXD, RS485_TXD);
+  //delay(1000);
 
 
 
