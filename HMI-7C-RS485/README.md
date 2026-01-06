@@ -153,8 +153,8 @@ if (humidity < 40) {
 ## LVGL GUI Notes
 
 - The temperature bar is implemented using two images
-        - - ui_Tempempty → empty background
-        - - ui_Tempfull → fill image aligned to bottom
+- ui_Tempempty → empty background
+- ui_Tempfull → fill image aligned to bottom
 - Rounded edges can be preserved by using Bar widget with indicator image instead of resizing images directly.
 - Humidity uses Arc widget, values mapped 0–100%.
 
