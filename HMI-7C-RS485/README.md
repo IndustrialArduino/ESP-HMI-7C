@@ -29,7 +29,7 @@ This project implements a **human-machine interface (HMI)** on an **ESP32** with
 | SCL (I2C)       | 20        | PCA9536 / TAMC_GT911 |
 | RS485 RXD       | 2         | Serial1 RX |
 | RS485 TXD       | 9         | Serial1 TX |
-| UART_SEL        | 3         | I2C-controlled UART selection |
+| UART_SEL        | 3         | UART selection | RS485 OR GSM | 1 - GSM , 0 - RS485
 | GSM_RESET       | 2         | I2C-controlled GSM reset |
 | TFT_RST         | 39        | Display reset |
 | SPI SCLK        | 11        | SPI bus for SD/Ethernet |
@@ -83,78 +83,15 @@ This project implements a **human-machine interface (HMI)** on an **ESP32** with
 ```cpp
 uint8_t result = node.readInputRegisters(0x0001, 2);
 
-Convert raw values to temperature and humidity:
 
-float temperature = tempRaw / 10.0;
-float humidity = humRaw / 10.0;
+## Sensor Data Handling & GUI Updates
 
+### Convert raw values to temperature and humidity
 
 Update numeric labels:
 
+```cpp
 lv_label_set_text(ui_temperaturevalue, "23.5 °C");
 lv_label_set_text(ui_Humidityvalue, "55 %");
 
-
-Update vertical thermometer bar:
-
-int fillHeight = (temperature / 50.0) * fullHeight;
-lv_obj_set_height(ui_Tempfull, fillHeight);
-lv_obj_align_to(ui_Tempfull, ui_Tempempty, LV_ALIGN_BOTTOM_MID, 0, 0);
-
-
-Update humidity arc (0–100%):
-
-lv_arc_set_value(ui_Arc, (int)humidity);
-
-
-Update zones based on thresholds (COLD/WARM/HOT, DRY/COMFORT/HUMID) with colors.
-
-LVGL GUI Notes
-
-Temperature Bar is implemented using two images:
-
-ui_Tempempty → empty background
-
-ui_Tempfull → fill image aligned to bottom
-
-Rounded edges can be preserved by using Bar widget with indicator image instead of resizing images directly.
-
-Humidity uses Arc widget, values mapped 0–100%.
-
-Modbus XY-MD02 Sensor
-
-Default slave ID = 1
-
-Registers read: 0x0001 → Temperature, Humidity
-
-Conversion: divide by 10 to get real values
-
-Troubleshooting
-Issue	Solution
-°C shows as box instead of symbol	Use OpenSans with ASCII extended in SquareLine export
-Vertical thermometer cuts bottom edge	Use Bar widget with indicator image instead of resizing
-Modbus read fails	Ensure RS485 wiring is correct, UART_SEL set to LOW, correct sensor ID
-How to Use
-
-Connect ESP32 to the display, touch, RS485 sensor, and optional GPIO/analog peripherals.
-
-Flash the project to ESP32 using Arduino IDE / PlatformIO.
-
-On power-up:
-
-Display shows LVGL GUI
-
-Reads temperature/humidity every second
-
-Updates vertical thermometer and arc widgets
-
-Future Enhancements
-
-Add Ethernet/NTP time display
-
-Support SD card logging of sensor values
-
-GSM / WiFi integration for remote monitoring
-
-Add animated thermometer fill for smoother UI
 
