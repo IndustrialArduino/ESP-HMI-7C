@@ -83,6 +83,7 @@ This project implements a **human-machine interface (HMI)** on an **ESP32** with
 ```cpp
 uint8_t result = node.readInputRegisters(0x0001, 2);
 
+```
 
 ## Sensor Data Handling & GUI Updates
 
@@ -93,5 +94,7 @@ Update numeric labels:
 ```cpp
 lv_label_set_text(ui_temperaturevalue, "23.5 °C");
 lv_label_set_text(ui_Humidityvalue, "55 %");
+
+```
 
 
