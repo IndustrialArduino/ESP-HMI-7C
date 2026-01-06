@@ -150,3 +150,19 @@ if (humidity < 40) {
 
 ```
 
+## LVGL GUI Notes
+
+- The temperature bar is implemented using two images
+        - ui_Tempempty → empty background
+        - ui_Tempfull → fill image aligned to bottom
+- Rounded edges can be preserved by using Bar widget with indicator image instead of resizing images directly.
+- Humidity uses Arc widget, values mapped 0–100%.
+- 
+##  Modbus XY-MD02 Sensor
+
+- Default slave ID = 1
+- Registers read: 0x0001 → Temperature, Humidity
+- Conversion: divide by 10 to get real values
+
+
+
