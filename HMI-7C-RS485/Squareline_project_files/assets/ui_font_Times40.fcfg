@@ -1,0 +1,16 @@
+{
+  "codename": "Times40",
+  "ttf_path": "/assets/Times New Roman.ttf",
+  "bin_path": "/assets\\ui_font_Times40.bin",
+  "c_path": "/assets\\ui_font_Times40.c",
+  "cfg_path": "/assets\\ui_font_Times40.fcfg",
+  "size": 40,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

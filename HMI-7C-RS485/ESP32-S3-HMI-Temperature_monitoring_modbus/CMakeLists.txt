@@ -1,0 +1,18 @@
+SET(SOURCES ui_Screen1.c
+    ui.c
+    ui_comp_hook.c
+    ui_helpers.c
+    ui_img_hum_emp_png.c
+    ui_img_hum_full_png.c
+    ui_img_temp_emp_png.c
+    ui_img_temp_full_png.c
+    fonts/ui_font_Font18.c
+    fonts/ui_font_Font20.c
+    fonts/ui_font_Font22.c
+    fonts/ui_font_opensans16.c
+    fonts/ui_font_opensans26.c
+    fonts/ui_font_opensans34.c
+    fonts/ui_font_opensans40.c
+    fonts/ui_font_Times40.c)
+
+add_library(ui ${SOURCES})
