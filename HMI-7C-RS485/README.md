@@ -96,5 +96,57 @@ lv_label_set_text(ui_temperaturevalue, "23.5 °C");
 lv_label_set_text(ui_Humidityvalue, "55 %");
 
 ```
+### Update vertical thermometer bar
 
+```cpp
+
+int fullHeight = lv_obj_get_height(ui_Tempempty);  // height of background
+int fillHeight = (int)((temperature / 50.0) * fullHeight);
+if (fillHeight < 0) fillHeight = 0;
+if (fillHeight > fullHeight) fillHeight = fullHeight;
+
+lv_obj_set_height(ui_Tempfull, fillHeight);
+lv_obj_align_to(ui_Tempfull, ui_Tempempty, LV_ALIGN_BOTTOM_MID, 0, 0);
+
+```
+### Update humidity arc (0–100%)
+
+```cpp
+
+int arc_val = (int)humidity;
+if (arc_val < 0) arc_val = 0;
+if (arc_val > 100) arc_val = 100;
+lv_arc_set_value(ui_Arc, arc_val);
+
+```
+
+### Update zones based on thresholds (COLD/WARM/HOT, DRY/COMFORT/HUMID) with colors
+
+```cpp
+
+// Temperature zones
+if (temperature < 20) {
+    lv_label_set_text(ui_temperaturezone, "COLD");
+    lv_obj_set_style_text_color(ui_temperaturezone, lv_color_hex(0x00FF51), 0); // green
+} else if (temperature < 35) {
+    lv_label_set_text(ui_temperaturezone, "WARM");
+    lv_obj_set_style_text_color(ui_temperaturezone, lv_color_hex(0xFFF200), 0); // yellow
+} else {
+    lv_label_set_text(ui_temperaturezone, "HOT");
+    lv_obj_set_style_text_color(ui_temperaturezone, lv_color_hex(0xFF0000), 0); // red
+}
+
+// Humidity zones
+if (humidity < 40) {
+    lv_label_set_text(ui_Humidityzone, "DRY");
+    lv_obj_set_style_text_color(ui_Humidityzone, lv_color_hex(0x00FF51), 0); // green
+} else if (humidity < 70) {
+    lv_label_set_text(ui_Humidityzone, "COMFORT");
+    lv_obj_set_style_text_color(ui_Humidityzone, lv_color_hex(0xFFF200), 0); // yellow
+} else {
+    lv_label_set_text(ui_Humidityzone, "HUMID");
+    lv_obj_set_style_text_color(ui_Humidityzone, lv_color_hex(0xFF0000), 0); // red
+}
+
+```
 
