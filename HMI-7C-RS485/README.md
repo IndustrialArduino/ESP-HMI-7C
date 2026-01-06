@@ -29,7 +29,7 @@ This project implements a **human-machine interface (HMI)** on an **ESP32** with
 | SCL (I2C)       | 20        | PCA9536 / TAMC_GT911 |
 | RS485 RXD       | 2         | Serial1 RX |
 | RS485 TXD       | 9         | Serial1 TX |
-| UART_SEL        | 3         | UART selection | RS485 OR GSM | 1 - GSM , 0 - RS485
+| UART_SEL        | 3         | UART selection / RS485 OR GSM / 1 - GSM , 0 - RS485
 | GSM_RESET       | 2         | I2C-controlled GSM reset |
 | TFT_RST         | 39        | Display reset |
 | SPI SCLK        | 11        | SPI bus for SD/Ethernet |
